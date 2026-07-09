@@ -6,12 +6,20 @@ This project translates American Sign Language (ASL) alphabet hand signs into En
 
 ## The Algorithm
 
-This project is written in Python and uses a webcam to capture live video of the user's hand. The images from the webcam are processed by a machine learning model that was trained for 35 epochs using Imagenet. The trained model recognizes ASL alphabet hand signs and predicts the corresponding English letter.
+This project is written in Python and uses a webcam to capture live video. The video is processed by a machine learning model that was trained using NVIDIA Jetson for 35 epochs. The trained model analyzes each frame from the webcam and predicts the corresponding ASL alphabet letter.
 
-The program only recognizes the ASL alphabet and outputs one letter at a time. The required Kaggle libraries will need to be installed before running the project.
+The project only recognizes ASL alphabet hand signs and outputs a single English letter at a time. The program depends on Python and the required libraries used by the project.
 
 <img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/5eea62c3-8807-4c81-926c-d5e517ee18f0" />
 
 ## Running this project
 
-1.
+1. Download the ASL dataset from Kaggle:
+   https://www.kaggle.com/datasets/mhamad12/asl-american-sign
+2. Unzip the dataset.
+3. Place the dataset into your NVIDIA Jetson Docker container.
+4. Train the model using ImageNet for 35 epochs.
+5. After training is complete, connect a webcam to the Jetson.
+6. Run the project:
+sudo imagenet.py --model=models/askmodelasl/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=data/asldata/labels.txt /dev/video0 file://asl_video_output.mp4 --headless
+7. Hold an ASL alphabet hand sign in front of the webcam to see the predicted letter displayed on the screen.
