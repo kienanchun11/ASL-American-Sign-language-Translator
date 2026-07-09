@@ -23,3 +23,5 @@ The project only recognizes ASL alphabet hand signs and outputs a single English
 6. Run the project:
 sudo imagenet.py --model=models/askmodelasl/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=data/asldata/labels.txt /dev/video0 file://asl_video_output.mp4 --headless
 7. Hold an ASL alphabet hand sign in front of the webcam to see the predicted letter displayed on the screen.
+
+https://drive.google.com/drive/home?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
